@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     public static String ACTION_RECEIPT_SUCCESS = TAG + ".ActionReceiptSuccess";
     public static String ACTION_RECEIPT_FAIL = TAG + ".ActionReceiptFail";
     private Button startExternalApp;
-    private Button nfcEndButton;
     private NfcAdapter nfcAdapter;
     private boolean isReceiverRegistered = false;;
     @Override
@@ -55,12 +54,10 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-
+        togglePolling(false);
         this.startExternalApp = findViewById(R.id.startExternalApp);
-        this.nfcEndButton = findViewById(R.id.nfcEndButton);
         initNfc();
         registerNfcReceiver();
-        togglePolling(false);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -130,9 +127,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         if (isNfcEnabled()) {
             CardEmulation.getInstance(nfcAdapter).setPreferredService(this, new ComponentName(this, MyHostApduService.class));
-            togglePolling(false);
         }
-
         registerNfcReceiver();
     }
 

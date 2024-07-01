@@ -24,12 +24,6 @@
             android:text="Start external app" />
 
 
-        <Button
-            android:id="@+id/nfcEndButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="End nfc activity" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
