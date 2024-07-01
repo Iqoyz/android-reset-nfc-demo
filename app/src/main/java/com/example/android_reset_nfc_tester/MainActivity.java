@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        togglePolling(false);
+//        togglePolling(false);
         this.startExternalApp = findViewById(R.id.startExternalApp);
         initNfc();
         registerNfcReceiver();
@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         Log.d(TAG, "[on resume]");
         super.onResume();
+        //        togglePolling(false);
         if (isNfcEnabled()) {
             CardEmulation.getInstance(nfcAdapter).setPreferredService(this, new ComponentName(this, MyHostApduService.class));
         }
