@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-//        togglePolling(false);
+
         this.startExternalApp = findViewById(R.id.startExternalApp);
         initNfc();
         registerNfcReceiver();
@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 changeToExternalApp();
             }
         });
+
+//        togglePolling(true);
     }
 
     private void togglePolling(boolean shouldPoll) {
